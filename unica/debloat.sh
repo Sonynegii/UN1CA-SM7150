@@ -267,7 +267,6 @@ system/app/MDMApp
 system/app/Rampart
 system/app/SilentLog
 system/app/SimAppDialog
-system/app/Traceur
 system/app/UniversalMDMClient
 system/app/WifiGuider
 system/app/ccinfo
