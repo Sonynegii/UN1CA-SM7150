@@ -253,7 +253,7 @@ system/etc/permissions/signature-permissions-com.samsung.android.offline.languag
 system/priv-app/OfflineLanguageModel_stub
 "
 
-# Google Messages (ExtremeROM debloat)
+# Google Messages
 PRODUCT_DEBLOAT+="
 priv-app/Messages
 "
@@ -303,13 +303,6 @@ system/priv-app/StickerFaceARAvatar
 PRODUCT_DEBLOAT+="
 app/Chrome64
 app/Duo
-"
-
-# Samsung Messages
-SYSTEM_DEBLOAT+="
-system/etc/default-permissions/default-permissions-com.samsung.android.messaging.xml
-system/etc/permissions/privapp-permissions-com.samsung.android.messaging.xml
-system/priv-app/SamsungMessages
 "
 
 # Samsung Pass
