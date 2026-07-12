@@ -139,6 +139,35 @@ system/priv-app/FactoryTestProvider
 # Language packs
 SYSTEM_DEBLOAT+="$(find "$WORK_DIR/system" -type d -name "*TTSVoice*" | sed "s|$WORK_DIR/system/||g")"
 
+# Samsung TTS
+SYSTEM_DEBLOAT+="
+system/app/SamsungTTS
+"
+
+# Samsung Kids
+SYSTEM_DEBLOAT+="
+system/etc/permissions/signature-permissions-com.sec.android.app.kidshome.xml
+system/app/KidsHome_Installer
+"
+
+# Bixby
+SYSTEM_DEBLOAT+="
+system/priv-app/Bixby
+system/app/BixbyWakeup
+system/priv-app/BixbyInterpreter
+system/etc/preferred-apps/com.samsung.android.bixby.agent.xml
+system/etc/permissions/privapp-permissions-com.samsung.android.bixby.agent.xml
+system/etc/permissions/privapp-permissions-com.samsung.android.bixby.wakeup.xml
+system/etc/permissions/signature-permissions-com.samsung.android.bixby.agent.xml
+"
+
+# Galaxy AI Core
+# Removes: Circle to Search, Photo Assist, Note Assist, Smart Reply (Samsung)
+# AVISO: algumas features do Gboard podem ser afetadas
+SYSTEM_DEBLOAT+="
+system/priv-app/AICore
+"
+
 # LED Cover Service
 [ "$(GET_FLOATING_FEATURE_CONFIG "SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_NFC_LED_COVER_LEVEL")" -lt "30" ] && SYSTEM_DEBLOAT+="
 system/etc/permissions/privapp-permissions-com.sec.android.cover.ledcover.xml
@@ -150,8 +179,6 @@ system/priv-app/LedCoverService
 SYSTEM_DEBLOAT+="
 system/priv-app/YourPhone_P1_5
 "
-
-ADD_TO_WORK_DIR "gta9pxxx" "system" "system/priv-app/YourPhone_Stub/YourPhone_Stub.apk" 0 0 644 "u:object_r:system_file:s0"
 
 # Live Transcribe
 SYSTEM_DEBLOAT+="
@@ -226,9 +253,63 @@ system/etc/permissions/signature-permissions-com.samsung.android.offline.languag
 system/priv-app/OfflineLanguageModel_stub
 "
 
-# Google Messages
+# Google Messages (ExtremeROM debloat)
 PRODUCT_DEBLOAT+="
 priv-app/Messages
+"
+
+# ExtremeROM-style debloat (maximum removal)
+SYSTEM_DEBLOAT+="
+system/app/CarrierDefaultApp
+system/app/ChromeCustomizations
+system/app/Fast
+system/app/MDMApp
+system/app/Rampart
+system/app/SilentLog
+system/app/SimAppDialog
+system/app/Traceur
+system/app/UniversalMDMClient
+system/app/WifiGuider
+system/app/ccinfo
+system/app/SamsungTTSVoice_ar_AE_m00
+system/app/SamsungTTSVoice_de_DE_f00
+system/app/SamsungTTSVoice_en_GB_f00
+system/app/SamsungTTSVoice_es_ES_f00
+system/app/SamsungTTSVoice_es_MX_f00
+system/app/SamsungTTSVoice_es_US_f00
+system/app/SamsungTTSVoice_fr_FR_f00
+system/app/SamsungTTSVoice_hi_IN_f00
+system/app/SamsungTTSVoice_id_ID_f00
+system/app/SamsungTTSVoice_it_IT_f00
+system/app/SamsungTTSVoice_pl_PL_f00
+system/app/SamsungTTSVoice_pt_BR_f00
+system/app/SamsungTTSVoice_ru_RU_f00
+system/app/SamsungTTSVoice_th_TH_f00
+system/app/SamsungTTSVoice_vi_VN_f00
+system/priv-app/AREmoji
+system/priv-app/CpAgent
+system/priv-app/DiagMonAgent94
+system/priv-app/EnhancedAttestationAgent
+system/priv-app/ImsLogger
+system/priv-app/OMCAgent5
+system/priv-app/OdaService
+system/priv-app/SKMSAgent
+system/priv-app/SOAgent75
+system/priv-app/SPPPushClient
+system/priv-app/SamsungPositioning
+system/priv-app/StickerFaceARAvatar
+"
+
+PRODUCT_DEBLOAT+="
+app/Chrome64
+app/Duo
+"
+
+# Samsung Messages
+SYSTEM_DEBLOAT+="
+system/etc/default-permissions/default-permissions-com.samsung.android.messaging.xml
+system/etc/permissions/privapp-permissions-com.samsung.android.messaging.xml
+system/priv-app/SamsungMessages
 "
 
 # Samsung Pass
